@@ -25,8 +25,4 @@ class EasterEggVideoActivity : AppCompatActivity() {
             finish()
         }
     }
-
-    override fun onBackPressed() {
-        finish()
-    }
 }
