@@ -4,6 +4,22 @@
     <string name="characters">Personajes</string>
     <string name="collectibles">Coleccionables</string>
     <string name="title_about">Acerca de</string>
-    <string name="text_about">Aplicación desarrollada por \n <b>Lindsay Barrero Martínez.</b></string>
+    <string name="text_about">Aplicación desarrollada por \n <b>Antonio Manuel Flores de Celis.</b></string>
     <string name="accept">Aceptar</string>
+
+    <string name="guia_titulo_bienvenida">Bienvenido a la guía interactiva</string>
+    <string name="guia_texto_bienvenida">Descubre las principales secciones de la app de Spyro The Dragon antes de empezar a usarla.</string>
+    <string name="guia_comenzar">Comenzar</string>
+    <string name="guia_siguiente">Siguiente</string>
+    <string name="guia_omitir">Omitir guía</string>
+
+    <string name="guia_personajes">Aquí podrás explorar a todos los personajes del mundo de Spyro.</string>
+    <string name="guia_mundos">Aquí podrás descubrir los mundos disponibles de la aventura.</string>
+    <string name="guia_coleccionables">Aquí podrás consultar los coleccionables más importantes del juego.</string>
+    <string name="guia_info">Aquí encontrarás la información general de la aplicación.</string>
+
+    <string name="guia_resumen_titulo">Guía completada</string>
+    <string name="guia_resumen_texto">Ya conoces las secciones principales de la aplicación. Pulsa el botón para empezar a usarla.</string>
+    <string name="guia_empezar_app">Empezar a usar la aplicación</string>
+
 </resources>

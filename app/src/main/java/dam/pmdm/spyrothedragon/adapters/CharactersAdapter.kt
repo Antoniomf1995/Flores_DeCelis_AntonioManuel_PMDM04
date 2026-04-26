@@ -10,7 +10,8 @@ import dam.pmdm.spyrothedragon.R
 import dam.pmdm.spyrothedragon.models.Character
 
 class CharactersAdapter(
-    private val list: List<Character>
+    private val list: List<Character>,
+    private val onRiptoLongClick: () -> Unit
 ) : RecyclerView.Adapter<CharactersAdapter.CharactersViewHolder>() {
 
     private val characterImages = mapOf(
@@ -32,6 +33,19 @@ class CharactersAdapter(
 
         val drawableRes = characterImages[character.image] ?: R.drawable.placeholder
         holder.imageImageView.setImageResource(drawableRes)
+
+        holder.itemView.setOnLongClickListener {
+            val esRipto =
+                character.name.equals("Ripto", ignoreCase = true) ||
+                        character.image.equals("ripto", ignoreCase = true)
+
+            if (esRipto) {
+                onRiptoLongClick()
+                true
+            } else {
+                false
+            }
+        }
     }
 
     override fun getItemCount(): Int = list.size

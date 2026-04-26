@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.FrameLayout
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -34,7 +35,9 @@ class CharactersFragment : Fragment() {
 
         recyclerView = binding.recyclerViewCharacters
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
-        adapter = CharactersAdapter(charactersList)
+        adapter = CharactersAdapter(charactersList) {
+            mostrarEasterEggRipto()
+        }
         recyclerView.adapter = adapter
 
         loadCharacters()
@@ -44,6 +47,32 @@ class CharactersFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    private fun mostrarEasterEggRipto() {
+        val overlay = binding.contenedorEasterEggRipto
+        overlay.removeAllViews()
+        overlay.visibility = View.VISIBLE
+
+        val efecto = RiptoCetroEffectView(requireContext())
+
+        overlay.addView(
+            efecto,
+            FrameLayout.LayoutParams(
+                FrameLayout.LayoutParams.MATCH_PARENT,
+                FrameLayout.LayoutParams.MATCH_PARENT
+            )
+        )
+
+        overlay.setOnClickListener {
+            overlay.removeAllViews()
+            overlay.visibility = View.GONE
+        }
+
+        overlay.postDelayed({
+            overlay.removeAllViews()
+            overlay.visibility = View.GONE
+        }, 3000)
     }
 
     private fun loadCharacters() {

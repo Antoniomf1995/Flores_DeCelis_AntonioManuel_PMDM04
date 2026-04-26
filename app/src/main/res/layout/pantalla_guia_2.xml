@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#88000000">
+
+    <View
+        android:id="@+id/vResaltadoPersonajes"
+        android:layout_width="110dp"
+        android:layout_height="57dp"
+        android:layout_gravity="bottom|start"
+        android:layout_marginStart="12dp"
+        android:layout_marginBottom="1dp"
+        android:background="@drawable/guia_resaltado_fuego" />
+
+    <ImageView
+        android:id="@+id/imgLlamaPersonajes"
+        android:layout_width="56dp"
+        android:layout_height="72dp"
+        android:layout_gravity="bottom|start"
+        android:layout_marginStart="40dp"
+        android:layout_marginBottom="78dp"
+        android:contentDescription="Indicador de personajes"
+        android:src="@drawable/guia_llama_cono" />
+
+    <LinearLayout
+        android:id="@+id/bocadilloPersonajes"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="145dp"
+        android:background="@drawable/guia_bocadillo"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <TextView
+            android:id="@+id/txtGuiaPersonajes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/guia_personajes"
+            android:textAlignment="center"
+            android:textColor="#4A148C"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btnSiguienteGuia2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/guia_boton_gema"
+            android:text="@string/guia_siguiente"
+            android:textAllCaps="false"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/txtOmitirGuia2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="12dp"
+            android:text="@string/guia_omitir"
+            android:textColor="#7B1FA2"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+</FrameLayout>

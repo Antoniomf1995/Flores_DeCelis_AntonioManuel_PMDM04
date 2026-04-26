@@ -53,4 +53,5 @@ dependencies {
     androidTestImplementation(libs.espresso.core)
     implementation (libs.navigation.fragment)
     implementation (libs.navigation.ui)
+    implementation("androidx.preference:preference-ktx:1.2.1")
 }

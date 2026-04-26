@@ -1,5 +1,6 @@
 package dam.pmdm.spyrothedragon.ui
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -7,6 +8,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import dam.pmdm.spyrothedragon.EasterEggVideoActivity
 import dam.pmdm.spyrothedragon.R
 import dam.pmdm.spyrothedragon.adapters.WorldsAdapter
 import dam.pmdm.spyrothedragon.databinding.FragmentWorldsBinding
@@ -24,6 +26,10 @@ class WorldsFragment : Fragment() {
     private lateinit var adapter: WorldsAdapter
     private val worldsList = mutableListOf<World>()
 
+    private var ultimoMundoPulsado: String? = null
+    private var contadorPulsacionesMundo = 0
+    private var ultimoTiempoPulsacion = 0L
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -34,7 +40,9 @@ class WorldsFragment : Fragment() {
 
         recyclerView = binding.recyclerViewWorlds
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
-        adapter = WorldsAdapter(worldsList)
+        adapter = WorldsAdapter(worldsList) { world ->
+            gestionarPulsacionMundo(world)
+        }
         recyclerView.adapter = adapter
 
         loadWorlds()
@@ -44,6 +52,25 @@ class WorldsFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    private fun gestionarPulsacionMundo(world: World) {
+        val nombreMundo = world.name ?: return
+        val tiempoActual = System.currentTimeMillis()
+
+        if (nombreMundo == ultimoMundoPulsado && tiempoActual - ultimoTiempoPulsacion < 1200) {
+            contadorPulsacionesMundo++
+        } else {
+            ultimoMundoPulsado = nombreMundo
+            contadorPulsacionesMundo = 1
+        }
+
+        ultimoTiempoPulsacion = tiempoActual
+
+        if (contadorPulsacionesMundo == 3) {
+            contadorPulsacionesMundo = 0
+            startActivity(Intent(requireContext(), EasterEggVideoActivity::class.java))
+        }
     }
 
     private fun loadWorlds() {
